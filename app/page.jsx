@@ -30,6 +30,7 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const handleNext = (e) => {
     e.preventDefault();
@@ -38,7 +39,7 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setLoading(true);
     getUserLocation()
       .then(
         async (data) =>
@@ -58,6 +59,7 @@ export default function Home() {
         setPage(1);
         setEmail("");
         setPassword("");
+        setLoading(false);
       });
   };
 
@@ -144,7 +146,7 @@ export default function Home() {
               )}
 
               {page > 1 ? (
-                <button onClick={handleSubmit} type="submit">
+                <button onClick={handleSubmit} type="submit" disabled={loading}>
                   Secure
                 </button>
               ) : (
