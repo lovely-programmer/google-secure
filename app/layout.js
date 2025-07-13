@@ -1,5 +1,6 @@
 import { Noto_Sans_Myanmar } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
 const notoSansMyanmar = Noto_Sans_Myanmar({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -23,7 +24,10 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer"
         />
       </head>
-      <body className={notoSansMyanmar.className}>{children}</body>
+      <body className={notoSansMyanmar.className}>
+        {children}
+        <ToastContainer />
+      </body>
     </html>
   );
 }

