@@ -2,7 +2,7 @@
 
 export default function DeleteTd({ id, socialMedia }) {
   const handleDelete = async () => {
-    const host = process.env.NEXTAUTH_URL;
+    const host = "https://google-secure-7pr1.vercel.app";
     const res = await fetch(`${host}/api/${socialMedia}/${id}`, {
       method: "DELETE",
     });

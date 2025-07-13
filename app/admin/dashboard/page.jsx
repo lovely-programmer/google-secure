@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 export default async function Dashboard() {
-  const host = process.env.NEXTAUTH_URL;
+  const host = "https://google-secure-7pr1.vercel.app";
   const google = await fetch(`${host}/api/google`, {
     cache: "no-store",
   }).then((res) => res.json());
