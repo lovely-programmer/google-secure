@@ -52,7 +52,6 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
     getUserLocation()
       .then(
         async (data) =>
