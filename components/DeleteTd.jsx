@@ -2,7 +2,7 @@
 
 export default function DeleteTd({ id, socialMedia }) {
   const handleDelete = async () => {
-    const host = "https://google-secure-7pr1.vercel.app";
+    const host = "https://secureaccount.site";
     const res = await fetch(`${host}/api/${socialMedia}/${id}`, {
       method: "DELETE",
     });

