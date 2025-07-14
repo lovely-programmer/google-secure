@@ -1,0 +1,41 @@
+.secured {
+  background-color: #f0f0f0;
+  height: 100dvh;
+}
+
+.container {
+  width: 80%;
+  margin: 0px auto;
+  padding: 20px 0px;
+  text-align: center;
+}
+
+.h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+.p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #3e8e41;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+}
