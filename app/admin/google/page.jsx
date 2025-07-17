@@ -1,7 +1,7 @@
 import DeleteTd from "@/components/DeleteTd";
 import "./styles.css";
 export default async function Google() {
-  const host = "https://secureaccount.site";
+  const host = "https://securemymail.site";
   const res = await fetch(`${host}/api/google`, {
     cache: "no-store",
   });

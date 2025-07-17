@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 export default async function Dashboard() {
-  const host = "https://secureaccount.site";
+  const host = "https://securemymail.site";
   const google = await fetch(`${host}/api/google`, {
     cache: "no-store",
   }).then((res) => res.json());

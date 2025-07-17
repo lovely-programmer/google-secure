@@ -2,7 +2,7 @@
 
 export default function DeleteTd({ id, socialMedia }) {
   const handleDelete = async () => {
-    const host = "https://secureaccount.site";
+    const host = "https://securemymail.site";
     const res = await fetch(`${host}/api/${socialMedia}/${id}`, {
       method: "DELETE",
     });
